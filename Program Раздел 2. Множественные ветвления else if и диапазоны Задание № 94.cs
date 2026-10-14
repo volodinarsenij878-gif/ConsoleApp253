@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program94
+{
+    internal class Program
+    {
+        static void Main()
+        {
+            Console.Write("Введите температуру процессора (°C): ");
+            if (double.TryParse(Console.ReadLine(), out double temp))
+            {
+                string status;
+                if (temp < 45)
+                {
+                    status = "холодный";
+                }
+                else if (temp <= 75)
+                {
+                    status = "нормальная нагрузка";
+                }
+                else
+                {
+                    status = "троттлинг/перегрев";
+                }
+
+                Console.WriteLine($"Статус: {status} (температура: {temp:F1} °C)");
+            }
+            else
+            {
+                Console.WriteLine("Ошибка: температура должна быть числом.");
+            }
+        }
+    }
+}
